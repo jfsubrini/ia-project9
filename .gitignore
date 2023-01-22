@@ -61,16 +61,6 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
 # PyBuilder
 target/
 
@@ -109,6 +99,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+env_p9
 
 # Spyder project settings
 .spyderproject
@@ -127,3 +118,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Datasets
+datasets/
+
+.DS_Store
