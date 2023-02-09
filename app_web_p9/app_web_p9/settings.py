@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for app_web_p9 project, deployed on Heroku at
 https://ia-project9.herokuapp.com/.
@@ -12,8 +13,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 import os
-# import dj_database_url  # pip install dj_database_url whitenoise
-
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,23 +25,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-u#k8=3%wo_*m(+@*3^9wew$j+3qlcsmn)sj=irfce*&yaln=*)'
 
-# # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-u#k8=3%wo_*m(+@*3^9wew$j+3qlcsmn)sj=irfce*&yaln=*)')
-
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.environ.get("ENV") == "PRODUCTION":
-    DEBUG = False
-    ALLOWED_HOSTS = ["ia_project9.herokuapp.com"]
-else:
-    DEBUG = True
-    ALLOWED_HOSTS = []
+DEBUG = True
+
+ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'web.apps.WebConfig',
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -134,3 +127,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Place to store images.
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

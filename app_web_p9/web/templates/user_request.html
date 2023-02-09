@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sélection de l'utilisateur</title>
+</head>
+
+<body>
+<center>
+    <img src="media/my_content.png" alt="my_content logo" width="133" height="63">
+    <h1><font color="#2E64FE">Requête pour l'utilisateur</font></h1>
+    {% if submitted %}
+    <p>La requête a bien été lancée.</p>
+    {% else %}
+    <img src="media/recommender.jpeg" alt="recommender image" width="189" height="160">
+    <form action="" method="post">
+        {% csrf_token %}
+        <h2><font color="#AB2524">Sélectionner un utilisateur pour obtenir 5 articles recommandés.</font></h2>
+        {{ select_user_form.as_p }}
+        <br>
+        <br>
+        <input type="submit" value="Lancer la requête">
+    </form>
+    {% endif %}
+</center>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Recommandation</title>
+</head>
+
+<body>
+<center>
+    <img src="media/my_content.png" alt="my_content logo" width="133" height="63">
+    <h1><font color="#2E64FE">Recommandation de 5 articles pour l'utilisateur nº {{ select_user_id }}</font></h1>
+    <h2>
+    <img src="media/image.jpg.webp" alt="vendeur de journaux" width="270" height="202">
+    <ul>
+        {% for article in reco_list %}
+            <li><font color="#AB2524">{{ article }}</font></li>
+        {% empty %}
+            <li>Désolé mais il n'y a pas d'articles recommandés.</li>
+        {% endfor %}
+    </ul>
+</h2>
+</center>
+</body>
+
+</html>

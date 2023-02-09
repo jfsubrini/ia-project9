@@ -10,5 +10,5 @@ from . import views
 
 
 urlpatterns = [
-    path('recommender-get/<int:pk>/', views.Recommender.as_view(), name='recommender'),
+    path('', views.recommender, name='recommender'),
 ]
