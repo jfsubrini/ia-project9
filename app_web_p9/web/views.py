@@ -21,21 +21,18 @@ def recommender(request):
             # Catching the form select choice.
             select_user_id = select_user_form.cleaned_data["select_user"]
             # Request  with the user id to the Recommender System in Azure Functions.  TODO
-        
-        
-            # payload = {'uid': user_id, 'key': GGG}
-            payload = {'uid': select_user_id}
-            endpoint = "https://recommender-get.azurewebsites.net/api/HttpTrigger1?code=eFS-C6UpMpzWHxmnspKsTI3Sdg3NJZeMFzRq3qYR6j1SAzFu0YPdLw=="
-            response = requests.get(endpoint, params=payload)
-            print("GGGGGG ", response)
+
+            # payload = {'uid': select_user_id, 'key': GGG}
+
+            # payload = {'key': select_user_id}
+            # endpoint = f"https://ia-project9.azurewebsites.net/{select_user_id}?"
+            endpoint = f"http://127.0.0.1:8080/recommender/?select_user_id={select_user_id}"
+            response = requests.get(endpoint)
             reco = response.json()
-            print("TTTTTTT ", response)
-        
-        
             # What to render to the recommender template.
             context = {
                 "select_user_id": select_user_id,
-                "reco_list" : reco
+                "reco_list" : reco['reco']
                 }
             # And redirect to the recommender page.
             return render(request, "recommender.html", context)

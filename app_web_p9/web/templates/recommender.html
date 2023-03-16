@@ -14,7 +14,7 @@
     <img src="media/image.jpg.webp" alt="vendeur de journaux" width="270" height="202">
     <ul>
         {% for article in reco_list %}
-            <li><font color="#AB2524">{{ article }}</font></li>
+            <li><font color="#AB2524">Article nº {{ article }}</font></li>
         {% empty %}
             <li>Désolé mais il n'y a pas d'articles recommandés.</li>
         {% endfor %}
