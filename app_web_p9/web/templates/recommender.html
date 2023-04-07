@@ -2,16 +2,17 @@
 <html lang="fr">
 
 <head>
+    {% load static %}
     <meta charset="utf-8">
     <title>Recommandation</title>
 </head>
 
 <body>
 <center>
-    <img src="media/my_content.png" alt="my_content logo" width="133" height="63">
+    <img src="{% static 'web/img/my_content.png' %}" alt="my_content logo" width="133" height="63">
     <h1><font color="#2E64FE">Recommandation de 5 articles pour l'utilisateur nº {{ select_user_id }}</font></h1>
     <h2>
-    <img src="media/image.jpg.webp" alt="vendeur de journaux" width="270" height="202">
+    <img src="{% static 'web/img/image.jpg.webp' %}" alt="vendeur de journaux" width="270" height="202">
     <ul>
         {% for article in reco_list %}
             <li><font color="#AB2524">Article nº {{ article }}</font></li>
