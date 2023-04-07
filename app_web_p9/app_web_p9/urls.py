@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """app_web_p9 URL Configuration
+Deployed on Heroku at https://ia-project9.herokuapp.com/.  TODO
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
