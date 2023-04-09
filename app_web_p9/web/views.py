@@ -23,7 +23,7 @@ def recommender(request):
             select_user_id = select_user_form.cleaned_data["select_user"]
             # Request with the user id to the Recommender System in our REST API on Heroku.
             if os.environ.get("ENV") == "PRODUCTION":
-                endpoint = f"https://ia-api-project9.herokuapp.com/recommender/?{select_user_id}"
+                endpoint = f"https://ia-api-project9.herokuapp.com/recommender/?select_user_id={select_user_id}"
             else:
                 endpoint = f"http://127.0.0.1:8080/recommender/?select_user_id={select_user_id}"
             response = requests.get(endpoint)
