@@ -11,7 +11,7 @@ from .forms import SelectUserForm
 def recommender(request):
     """
     View to a page where one can select a user id to get the recommendation.
-    Request to Azure Functions to get the recommendation for that user.  TODO
+    Request to  our REST API on Heroku to get the recommendation for that user.
     Return the page with the 5 articles recommendation.
     """
     # When the form has been posted.
@@ -21,9 +21,9 @@ def recommender(request):
         if select_user_form.is_valid():
             # Catching the form selected choice.
             select_user_id = select_user_form.cleaned_data["select_user"]
-            # Request  with the user id to the Recommender System in Azure Functions.  TODO
+            # Request with the user id to the Recommender System in our REST API on Heroku.
             if os.environ.get("ENV") == "PRODUCTION":
-                endpoint = f"https://ia-project9.azurewebsites.net/{select_user_id}?"  # TODO
+                endpoint = f"https://ia-api-project9.herokuapp.com/recommender/?{select_user_id}"
             else:
                 endpoint = f"http://127.0.0.1:8080/recommender/?select_user_id={select_user_id}"
             response = requests.get(endpoint)
